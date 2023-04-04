@@ -38,13 +38,13 @@ uint64_t alloc_page_frame(void)
 void* phys_to_virt(uint64_t phys_addr)
 {
 	uint64_t ppn = (phys_addr >> 12) - 0xbaaaaaad;
-	uint64_t off = phys_addr & 0xfff;  
+	uint64_t off = phys_addr & 0xfff;
 	char* va = NULL;
 
 	if (ppn < NPAGES)
 		va = pages[ppn] + off;
 
-	return va; 
+	return va;
 }
 
 int main(int argc, char **argv)
